@@ -1,1 +1,1 @@
-web: gunicorn flair.wsgi --log-file -
+web: gunicorn Reddit.wsgi --log-file -
