@@ -10,6 +10,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sub_name = ['india']
 post_num = 250
 reddit = praw.Reddit(
@@ -54,7 +55,7 @@ for sub in sub_name:
     else:
         retrieve_post(sub,post_num,csv_name)
     print("done")
-df=pd.read_csv("india.csv ")
+df=pd.read_csv(os.path.join(BASE_DIR,"india.csv"))
 df.flair_name=pd.Categorical(df.flair_name)
 df['flair']=df.flair_name.cat.codes 
 data_x=df.title
