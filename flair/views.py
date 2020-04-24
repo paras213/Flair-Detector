@@ -87,7 +87,8 @@ def testing(request):
         file=request.FILES['raju']
         fs=FileSystemStorage()
         fs.save(file.name,file)
-        loc=os.path.join(BASE_DIR,'media\\')+file.name
+        loc1='media/'+file.name
+        loc=os.path.join(BASE_DIR,loc1)
         data = open(loc,"r") 
         x=data.readlines()
         for item in x:
