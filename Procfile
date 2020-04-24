@@ -1,1 +1,1 @@
-web: run this things 
+web: gunicorn flair.wsgi --log-file -
