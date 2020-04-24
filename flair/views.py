@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 import datetime
 import csv
 import praw
@@ -10,6 +10,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
+from django.core.files.storage import FileSystemStorage
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sub_name = ['india']
 post_num = 250
@@ -79,3 +80,18 @@ def predict(url):
     index=int(mnb.predict(title))
     result=df.flair_name.cat.categories[index]
     return result
+
+def testing(request):
+    comment=[]
+    if request.method=="POST":
+        file=request.FILES['raju']
+        fs=FileSystemStorage()
+        fs.save(file.name,file)
+        loc='media/'+file.name
+        data = open(loc,"r") 
+        x=data.readlines()
+        for item in x:
+            res=predict(item)
+            comment.append( {item : res} )
+        return JsonResponse({'comments':comment})
+    return render(request,'flair/upload.html')
