@@ -1,7 +1,7 @@
 Reddit Flare Detector
 ======
 
-It is a web applicatoion use for the detection of Flair of a reddit post.  (<https://flairdetector13.herokuapp.com/>).
+A web interface use for detecting the flair_name of a reddit post.  (<https://flairdetector13.herokuapp.com/>).
 
 ## Final.ipnyb
 
