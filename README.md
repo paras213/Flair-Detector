@@ -7,6 +7,15 @@ A web interface use for detecting the flair_name of a reddit post.  (<https://fl
 
 This is a script to detect the flare of a reddit post.
 
+### Usage
+
+For Detecting the flair_name of a reddit post by giving input url of a post : (<https://flairdetector13.herokuapp.com/>)
+
+The endpoint for automated_testing : (<https://flairdetector13.herokuapp.com/automated_testing>)
+
+This endpoint will be used for testing performance of our classifier. User will send an automated POST request to
+the end point with a .txt file which contains a link of a r/india post in every line. Response of the
+request will be a json file in which key is the link to the post and value of predicted flare.
 
 ### Install
 
@@ -25,7 +34,7 @@ This is a script to detect the flare of a reddit post.
     ```
 
 
-### Usage
+### Local Usage
 
 Execute with Python 3:
 
