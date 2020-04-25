@@ -1,4 +1,3 @@
-======
 Reddit Flare Detector
 ======
 
